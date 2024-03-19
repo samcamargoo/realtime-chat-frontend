@@ -15,6 +15,10 @@ export const ChatRoom = () => {
   useSubscription("/topic/public", (message) => {
     const messageReceived: Message = JSON.parse(message.body);
 
+    if (messageReceived.type === "CHAT") {
+      messageReceived.content =
+        messageReceived.sender + " disse: " + messageReceived.content;
+    }
     switch (messageReceived.type) {
       case "LEAVE":
         messageReceived.content = messageReceived.sender + " saiu";
@@ -30,7 +34,7 @@ export const ChatRoom = () => {
   const sendMessage = () => {
     const message: Message = {
       content: newMessage,
-      sender: "sam",
+      sender: username,
       type: "CHAT",
     };
 

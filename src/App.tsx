@@ -7,8 +7,7 @@ import { ChatRoom } from "./components/ChatRoom";
 function App() {
   return (
     <StompSessionProvider
-      url={"https://penguin-settling-happily.ngrok-free.app/ws"}
-      connectHeaders={{"ngrok-skip-browser-warning": "123"}}
+      url={"https://realtime-chat-production-8ad5.up.railway.app/ws"}
       debug={(str) => {
         console.log(str);
       }}
